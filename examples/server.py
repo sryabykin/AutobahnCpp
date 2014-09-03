@@ -26,8 +26,8 @@ from twisted.internet.defer import Deferred, \
                                    returnValue
 from twisted.internet.endpoints import serverFromString
 
+from autobahn.twisted import wamp
 from autobahn.twisted.util import sleep
-from autobahn.wamp.router import RouterFactory
 from autobahn.wamp.serializer import MsgPackSerializer
 from autobahn.twisted.wamp import ApplicationSession
 from autobahn.twisted.wamp import RouterSessionFactory
@@ -142,7 +142,7 @@ if __name__ == '__main__':
    log.startLogging(sys.stdout)
 
    ## 1) create a WAMP router factory
-   router_factory = RouterFactory()
+   router_factory = wamp.RouterFactory()
 
    ## 2) create a WAMP router session factory
    session_factory = RouterSessionFactory(router_factory)
